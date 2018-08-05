@@ -1,11 +1,23 @@
-import { browser, by, element } from 'protractor';
+import {browser, by, element} from 'protractor';
 
 export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getCityInput() {
+    return element(by.id('city'));
+  }
+
+  getSearchButton() {
+    return element(by.id('searchBtn'));
+  }
+
+  getCityLabel() {
+    return element(by.className('city-label'));
+  }
+
+  getTemperatureLabels() {
+    return element.all(by.className('temperature-label'));
   }
 }

@@ -7,8 +7,8 @@
   </thead>
   <tbody>
   <tr>
-    <td scope="row">{{weather.city.name}}</td>
-    <td scope="row" *ngFor="let forecast of forecasts">{{forecast.temperature}}</td>
+    <td scope="row" class="city-label">{{weather.city.name}}</td>
+    <td scope="row" class="temperature-label" *ngFor="let forecast of forecasts">{{forecast.temperature}}</td>
   </tr>
   </tbody>
 </table>

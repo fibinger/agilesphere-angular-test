@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import {AppPage} from './app.po';
 
 describe('angular-weather App', () => {
   let page: AppPage;
@@ -7,7 +7,11 @@ describe('angular-weather App', () => {
     page = new AppPage();
   });
 
-  it('e2e are running empty, please implement', () => {
-    expect(page);
+  it('should display weather for Swindon', () => {
+    page.navigateTo();
+    page.getCityInput().sendKeys('Swindon');
+    page.getSearchButton().click();
+    expect(page.getCityLabel().getText()).toEqual('Swindon');
+    expect(page.getTemperatureLabels().count()).toEqual(4);
   });
 });
