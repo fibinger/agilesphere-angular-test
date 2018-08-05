@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import {SearchComponent} from './search.component';
-import {WeatherModule} from '../../weather.module';
+import {FormsModule} from '@angular/forms';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -10,8 +10,8 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [],
-      imports: [WeatherModule],
+      declarations: [SearchComponent],
+      imports: [FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
