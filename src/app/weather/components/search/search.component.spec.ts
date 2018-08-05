@@ -1,10 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-import { SearchComponent } from './search.component';
-
-import Spy = jasmine.Spy;
+import {SearchComponent} from './search.component';
+import {WeatherModule} from '../../weather.module';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -12,11 +10,11 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ],
-      imports: [],
+      declarations: [],
+      imports: [WeatherModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,5 +27,13 @@ describe('SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // IMPLEMENT TESTS HERE
+  it('should emit search event', done => {
+    component.city = 'London';
+    component.searchTriggered.subscribe(event => {
+      expect(event).toEqual('London');
+      done();
+    });
+    component.search();
+  });
+
 });
